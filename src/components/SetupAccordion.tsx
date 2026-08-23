@@ -1,10 +1,15 @@
 export function SetupAccordion() {
   return (
-    <details className="mb-6 rounded-xl border border-parity-line bg-parity-surface">
+    <details className="group mb-6 rounded-xl border border-parity-line bg-parity-surface">
       <summary className="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-parity-ink marker:content-none [&::-webkit-details-marker]:hidden">
         <span className="flex items-center justify-between gap-3">
           How this comparison is set up
-          <span className="text-parity-muted font-normal">Expand</span>
+          <span className="font-normal text-parity-muted group-open:hidden">
+            Expand
+          </span>
+          <span className="hidden font-normal text-parity-muted group-open:inline">
+            Collapse
+          </span>
         </span>
       </summary>
       <div className="space-y-4 border-t border-parity-line px-4 py-4 text-sm leading-relaxed text-parity-ink">
