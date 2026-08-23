@@ -1,103 +1,75 @@
-import Image from "next/image";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { galleryWidgets } from '@/lib/gallery-widgets';
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: 'Home',
+};
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
+    <article className="max-w-3xl leading-relaxed text-parity-ink">
+      <p className="m-0 text-xs font-bold uppercase tracking-wider text-parity-accent">
+        Example host app
+      </p>
+      <h1 className="mt-1 text-3xl font-semibold">
+        Next.js gallery with host Tailwind — source vs RuleCMS widget
+      </h1>
+      <p className="mt-3 text-lg text-parity-muted">
+        This project compiles Tailwind in the Next.js app. Each comparison page
+        shows host JSX on the left and a RuleCMS widget on the right. The widget
+        is DOM plus class names; CSS variables and utility definitions come from
+        this host, not from RuleCMS.
+      </p>
+      <h2 className="mt-8 text-xl font-semibold">How to use this app</h2>
+      <p className="mt-2">
+        Use the <strong>left sidebar</strong> to open each widget. Names match
+        the no-Tailwind gallery. Every widget has a client-side view and a
+        server pre-fetched view:
+      </p>
+      <ul className="mt-3 list-disc pl-5">
+        {galleryWidgets.map((widget) => (
+          <li key={widget.slug}>
+            <Link className="text-parity-accent" href={`/widgets/${widget.slug}`}>
+              {widget.label}
+            </Link>
+            {' — '}
+            <Link className="text-parity-accent" href={`/widgets/${widget.slug}`}>
+              client-side
+            </Link>
+            {' / '}
+            <Link className="text-parity-accent" href={`/widgets/${widget.slug}/ssr`}>
+              server pre-fetched
+            </Link>
           </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        ))}
+      </ul>
+      <p className="mt-4">
+        Expand <strong>How this comparison is set up</strong> on a widget page
+        for the tutorial. Collapse it to compare the two panes. The goal is
+        visual parity: the same classes on the left (scanned by Tailwind) and on
+        the RuleCMS widget on the right.
+      </p>
+      <h2 className="mt-8 text-xl font-semibold">What this host does not do</h2>
+      <ul className="mt-2 list-disc pl-5">
+        <li>It does not rely on RuleCMS to compile Tailwind or emit theme CSS variables.</li>
+        <li>
+          It does not ship tokens or published keys. Copy{' '}
+          <code className="font-mono">.env.example</code> to{' '}
+          <code className="font-mono">.env.local</code>.
+        </li>
+      </ul>
+      <h2 className="mt-8 text-xl font-semibold">Related example</h2>
+      <p className="mt-2">
+        The no-Tailwind host (widget CSS comes from RuleCMS) is{' '}
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          className="text-parity-accent"
+          href="https://github.com/rulecms/use_rulecms_nextjs_no_tailwind"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          use_rulecms_nextjs_no_tailwind
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        .
+      </p>
+    </article>
   );
 }

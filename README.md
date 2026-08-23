@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RuleCMS widget gallery — Next.js, host Tailwind
 
-## Getting Started
+A Next.js host that **includes Tailwind**. Each widget page is a comparison:
 
-First, run the development server:
+- **Left — source component:** hand-written JSX in this repo. Tailwind scans those class names and emits utilities plus theme CSS variables.
+- **Right — rendered RuleCMS widget:** DOM from RuleCMS with the same class names. It does not depend on RuleCMS for CSS variables or utility definitions.
+
+Use the sidebar to open each widget. Names match [use_rulecms_nextjs_no_tailwind](https://github.com/rulecms/use_rulecms_nextjs_no_tailwind). Start with Widget 1. Add more with the [add-widget runbook](__docs__/RUNBOOK_add-gallery-widget.md).
+
+The no-Tailwind gallery (widget CSS comes from RuleCMS) is a separate repo.
+
+## Live demo
+
+Production URL is added after the first Vercel deploy.
+
+## Quick start
+
+```bash
+git clone https://github.com/rulecms/use_rulecms_nextjs_tailwind.git
+cd use_rulecms_nextjs_tailwind
+npm install
+cp .env.example .env.local
+```
+
+Fill in `.env.local`, then:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). On a widget page, expand **How this comparison is set up** for the tutorial; collapse it to compare the two panes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To deploy a hosted instance, follow [VERCEL.md](./VERCEL.md).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+This repository does **not** commit tokens or published keys.
 
-To learn more about Next.js, take a look at the following resources:
+| Name | Used by |
+| --- | --- |
+| `RULECMS_TOKEN` | The one RuleCMS app token. Client-side and server pre-fetched. |
+| `RULECMS_ENDPOINT` | Optional; default `https://rulecms.com` |
+| `RULECMS_WIDGET_1_PUBLISHED_KEY` | Widget 1 published key |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Routes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Route | What it shows |
+| --- | --- |
+| `/` | Purpose of this gallery |
+| `/widgets/widget-1` | Left: source JSX. Right: client-side widget |
+| `/widgets/widget-1/ssr` | Same split; right pane is server pre-fetched |
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+npm run typecheck
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT
