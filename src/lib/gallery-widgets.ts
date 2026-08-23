@@ -21,7 +21,7 @@ export const galleryWidgets: GalleryWidget[] = [
     slug: 'widget-1',
     label: 'Widget 1',
     description:
-      'Compare host JSX (left) with the RuleCMS widget (right). This Next.js app compiles Tailwind; the widget is DOM plus class names and should match the left pane.',
+      'Compare host JSX (left) with the RuleCMS widget (right). Both use the same Tailwind classes compiled by this host.',
     publishedKeyEnv: 'RULECMS_WIDGET_1_PUBLISHED_KEY',
   },
 ];

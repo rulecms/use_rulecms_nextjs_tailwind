@@ -59,6 +59,12 @@ Create `src/components/source/widget-2-source.tsx` and register it in `src/lib/s
 'widget-2': Widget2Source,
 ```
 
+Optional tutorial copy for the info icon next to **Source component**:
+
+```ts
+'widget-2': 'Why this left pane is set up this way…',
+```
+
 Put every class the RuleCMS widget will use in this file (or elsewhere in host source) so Tailwind emits the CSS.
 
 ### 4. Add env placeholders (blank)
