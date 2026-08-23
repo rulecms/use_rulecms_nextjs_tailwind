@@ -58,7 +58,10 @@ npm run build
 npm run start
 npm run lint
 npm run typecheck
+npm run extract:widget-css
 ```
+
+`extract:widget-css` recompiles `globals.css` through Tailwind/PostCSS and writes the per-widget CSS snapshot shown under the comparison panes.
 
 ## License
 

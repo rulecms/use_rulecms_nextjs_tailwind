@@ -10,9 +10,14 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
 
-  /* Parity tokens: host Tailwind emits these CSS variables plus utilities.
-     The RuleCMS widget on the right can reuse the same class names. */
+/*
+  Non-inline theme: Tailwind emits these as CSS custom properties on :root
+  and references them from generated utilities. The RuleCMS widget reuses
+  the utilities; the variables live in this host stylesheet.
+*/
+@theme {
   --color-parity-canvas: #f4f1ea;
   --color-parity-surface: #fffcf7;
   --color-parity-ink: #1c1917;

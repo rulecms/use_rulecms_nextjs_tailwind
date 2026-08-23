@@ -67,7 +67,17 @@ Optional tutorial copy for the info icon next to **Source component**:
 
 Put every class the RuleCMS widget will use in this file (or elsewhere in host source) so Tailwind emits the CSS.
 
-### 4. Add env placeholders (blank)
+### 4. Snapshot the compiled widget CSS
+
+Add the widget’s class string to `WIDGET_CLASSES` in `scripts/extract-widget-css.mjs`, then:
+
+```bash
+npm run extract:widget-css
+```
+
+Register the new file in `src/lib/generated-tailwind/index.ts`. The comparison page shows those variables and class rules under the split.
+
+### 5. Add env placeholders (blank)
 
 `.env.example`:
 
@@ -77,11 +87,11 @@ RULECMS_WIDGET_2_PUBLISHED_KEY=
 
 `VERCEL.md`: add that name. Tell the user to set it locally and on Vercel, then redeploy.
 
-### 5. Do not write the published key into source
+### 6. Do not write the published key into source
 
 Put keys only in `.env.local` (gitignored) or tell the user to paste them into Vercel. Never commit `.env.local`.
 
-### 6. Verify
+### 7. Verify
 
 ```bash
 npm run typecheck
@@ -105,5 +115,7 @@ npm run build
 | `src/lib/gallery-widgets.ts` | New registry entry |
 | `src/components/source/widget-N-source.tsx` | Host JSX |
 | `src/lib/source-by-slug.ts` | Register the source component |
+| `scripts/extract-widget-css.mjs` | Class string for the CSS snapshot |
+| `src/lib/generated-tailwind/` | Regenerated snapshot + slug lookup |
 | `.env.example` | Blank published-key var |
 | `VERCEL.md` | Document that var |

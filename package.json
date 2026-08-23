@@ -19,7 +19,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "extract:widget-css": "node scripts/extract-widget-css.mjs"
   },
   "dependencies": {
     "@rulecms/source-components-react": "^20.20.0",

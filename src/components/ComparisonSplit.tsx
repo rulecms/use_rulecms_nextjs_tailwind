@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { GalleryWidget } from '@/lib/gallery-widgets';
 import { getSourceComponent, getSourceInfo } from '@/lib/source-by-slug';
 import { ComparisonHeader } from './ComparisonHeader';
+import { GeneratedCssPanel } from './GeneratedCssPanel';
 import { SetupAccordion } from './SetupAccordion';
 import { SourceInfoButton } from './SourceInfoButton';
 
@@ -56,6 +57,7 @@ export function ComparisonSplit({
           </div>
         </section>
       </div>
+      <GeneratedCssPanel slug={widget.slug} />
     </article>
   );
 }

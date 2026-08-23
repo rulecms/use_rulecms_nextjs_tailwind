@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Tailwind compile scratch file (snapshot lives in src/lib/generated-tailwind/)
+/scripts/compiled-tailwind.css

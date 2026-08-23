@@ -4,7 +4,7 @@ This is a **Next.js gallery with host Tailwind**. Each widget page compares sour
 
 ## Add another widget
 
-Follow [`__docs__/RUNBOOK_add-gallery-widget.md`](./__docs__/RUNBOOK_add-gallery-widget.md).
+Follow [`__docs__/RUNBOOK_add-gallery-widget.md`](./__docs__/RUNBOOK_add-gallery-widget.md). After adding source classes, run `npm run extract:widget-css` so the comparison page lists that widget’s compiled variables and utilities.
 
 ## Deploy
 
