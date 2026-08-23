@@ -24,8 +24,8 @@ export default function HomePage() {
       <h2 className="mt-8 text-xl font-semibold">How to use this app</h2>
       <p className="mt-2">
         Use the <strong>left sidebar</strong> to open each widget. Names match
-        the no-Tailwind gallery. Every widget has a client-side view and a
-        server pre-fetched view:
+        the no-Tailwind gallery. The default view is server pre-fetched. Every
+        widget also has a client-side view:
       </p>
       <ul className="mt-3 list-disc pl-5">
         {galleryWidgets.map((widget) => (
@@ -35,11 +35,11 @@ export default function HomePage() {
             </Link>
             {' — '}
             <Link className="text-parity-accent" href={`/widgets/${widget.slug}`}>
-              client-side
+              server pre-fetched
             </Link>
             {' / '}
-            <Link className="text-parity-accent" href={`/widgets/${widget.slug}/ssr`}>
-              server pre-fetched
+            <Link className="text-parity-accent" href={`/widgets/${widget.slug}/csr`}>
+              client-side
             </Link>
           </li>
         ))}

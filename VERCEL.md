@@ -34,8 +34,8 @@ Click **Deploy**. The production URL is shown when the build finishes. Later pus
 ### What you should see
 
 - `/` — gallery homepage and left sidebar.
-- `/widgets/widget-1` — source JSX on the left, client-side RuleCMS widget on the right.
-- `/widgets/widget-1/ssr` — same split; the right pane is server pre-fetched.
+- `/widgets/widget-1` — source JSX on the left, server pre-fetched RuleCMS widget on the right.
+- `/widgets/widget-1/csr` — same split; the right pane loads client-side.
 
 If credentials are missing, the right pane shows a configuration message instead of failing the build.
 

@@ -63,8 +63,8 @@ import * as sourceComponents from '@rulecms/source-components-react';
           </pre>
         </div>
         <p className="text-parity-muted">
-          Collapse this panel to focus on the two panes. Use the Client-side /
-          Server pre-fetched links to switch how the right pane loads.
+          Collapse this panel to focus on the two panes. Use the Server
+          pre-fetched / Client-side links to switch how the right pane loads.
         </p>
       </div>
     </details>

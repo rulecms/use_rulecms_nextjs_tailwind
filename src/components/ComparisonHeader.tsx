@@ -9,8 +9,8 @@ interface ComparisonHeaderProps {
 }
 
 export function ComparisonHeader({ widget, mode }: ComparisonHeaderProps) {
-  const csrHref = `/widgets/${widget.slug}`;
-  const ssrHref = `/widgets/${widget.slug}/ssr`;
+  const ssrHref = `/widgets/${widget.slug}`;
+  const csrHref = `/widgets/${widget.slug}/csr`;
 
   return (
     <header className="mb-4">
@@ -23,16 +23,6 @@ export function ComparisonHeader({ widget, mode }: ComparisonHeaderProps) {
       <p className="mt-2 max-w-3xl text-parity-muted">{widget.description}</p>
       <nav className="mt-4 flex flex-wrap gap-2" aria-label="Rendering mode">
         <Link
-          href={csrHref}
-          className={
-            mode === 'csr'
-              ? 'rounded-full border border-parity-accent bg-parity-accent-soft px-3 py-1 text-sm font-semibold text-parity-accent'
-              : 'rounded-full border border-parity-line bg-parity-surface px-3 py-1 text-sm text-parity-ink'
-          }
-        >
-          Client-side (CSR)
-        </Link>
-        <Link
           href={ssrHref}
           className={
             mode === 'ssr'
@@ -41,6 +31,16 @@ export function ComparisonHeader({ widget, mode }: ComparisonHeaderProps) {
           }
         >
           Server pre-fetched (SSR)
+        </Link>
+        <Link
+          href={csrHref}
+          className={
+            mode === 'csr'
+              ? 'rounded-full border border-parity-accent bg-parity-accent-soft px-3 py-1 text-sm font-semibold text-parity-accent'
+              : 'rounded-full border border-parity-line bg-parity-surface px-3 py-1 text-sm text-parity-ink'
+          }
+        >
+          Client-side (CSR)
         </Link>
       </nav>
     </header>

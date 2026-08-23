@@ -13,8 +13,8 @@ Also ask for (or create) the **left-pane source JSX** that Tailwind should scan.
 ## What “done” means
 
 1. The left sidebar lists the new widget (same label pattern as `use_rulecms_nextjs_no_tailwind`).
-2. `/widgets/<slug>` is a left/right comparison: host source vs client-side `RuleCMSWidget`.
-3. `/widgets/<slug>/ssr` is the same split with `fetchRuleCMSWidget` + `mode="pre-fetched"` on the right.
+2. `/widgets/<slug>` is a left/right comparison: host source vs server pre-fetched `RuleCMSWidget` (`mode="pre-fetched"`).
+3. `/widgets/<slug>/csr` is the same split with client-side `RuleCMSWidget` on the right.
 4. Host JSX for that slug lives under `src/components/source/` and is registered in `src/lib/source-by-slug.ts`.
 5. `.env.example` and `VERCEL.md` list the new env var (blank values — never commit tokens).
 6. The host still **has Tailwind**. Do not remove it.

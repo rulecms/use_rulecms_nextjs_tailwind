@@ -47,8 +47,8 @@ This repository does **not** commit tokens or published keys.
 | Route | What it shows |
 | --- | --- |
 | `/` | Purpose of this gallery |
-| `/widgets/widget-1` | Left: source JSX. Right: client-side widget |
-| `/widgets/widget-1/ssr` | Same split; right pane is server pre-fetched |
+| `/widgets/widget-1` | Left: source JSX. Right: server pre-fetched widget |
+| `/widgets/widget-1/csr` | Same split; right pane is client-side |
 
 ## Scripts
 

@@ -66,18 +66,18 @@ export function Sidebar() {
             Widgets
           </p>
           {galleryWidgets.map((widget) => {
-            const csrHref = `/widgets/${widget.slug}`;
-            const ssrHref = `/widgets/${widget.slug}/ssr`;
+            const ssrHref = `/widgets/${widget.slug}`;
+            const csrHref = `/widgets/${widget.slug}/csr`;
             return (
               <div key={widget.slug} className="mb-2">
                 <span className="block px-3 pt-1 pb-0.5 text-xs text-parity-sidebar-muted">
                   {widget.label}
                 </span>
-                <Link href={csrHref} onClick={close} className={navClass(pathname === csrHref, true)}>
-                  Client-side
-                </Link>
                 <Link href={ssrHref} onClick={close} className={navClass(pathname === ssrHref, true)}>
                   Server pre-fetched
+                </Link>
+                <Link href={csrHref} onClick={close} className={navClass(pathname === csrHref, true)}>
+                  Client-side
                 </Link>
               </div>
             );
