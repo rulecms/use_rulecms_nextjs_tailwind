@@ -11,7 +11,7 @@ The no-Tailwind gallery (widget CSS comes from RuleCMS) is a separate repo.
 
 ## Live demo
 
-Production URL is added after the first Vercel deploy.
+**[View the live demo](https://use-rulecms-nextjs-tailwind.vercel.app/)**
 
 ## Quick start
 
