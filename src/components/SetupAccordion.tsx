@@ -53,7 +53,6 @@ import * as sourceComponents from '@rulecms/source-components-react';
 
 <RuleCMSWidgetProvider
   token={process.env.RULECMS_TOKEN}
-  endpoint="https://rulecms.com"
   libraries={{ default: sourceComponents }}
 >
   <RuleCMSWidget

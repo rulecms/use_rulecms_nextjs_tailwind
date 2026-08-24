@@ -67,8 +67,8 @@ export default async function WidgetSsrPage({ params }: WidgetPageProps) {
             <h2 className="m-0 text-base font-semibold">Could not load this widget</h2>
             <p className="mt-2 text-sm">
               The server fetch using <code className="font-mono">fetchRuleCMSWidget</code>{' '}
-              failed. Check the published key, <code className="font-mono">RULECMS_TOKEN</code>,
-              and endpoint.
+              failed. Check the published key and{' '}
+              <code className="font-mono">RULECMS_TOKEN</code>.
             </p>
             {fetchError ? <p className="mt-2 text-sm">{fetchError}</p> : null}
           </div>

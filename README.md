@@ -39,7 +39,6 @@ This repository does **not** commit tokens or published keys.
 | Name | Used by |
 | --- | --- |
 | `RULECMS_TOKEN` | The one RuleCMS app token. Client-side and server pre-fetched. |
-| `RULECMS_ENDPOINT` | Optional; default `https://rulecms.com` |
 | `RULECMS_WIDGET_1_PUBLISHED_KEY` | Widget 1 published key |
 
 ## Routes

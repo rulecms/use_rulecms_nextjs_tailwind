@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Sidebar } from '@/components/Sidebar';
-import { getRuleCMSEndpoint, getRuleCMSToken } from '@/lib/rulecms-config';
+import { getRuleCMSToken } from '@/lib/rulecms-config';
 import { RuleCMSProvider } from './providers';
 import './globals.css';
 
@@ -30,12 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const token = getRuleCMSToken();
-  const endpoint = getRuleCMSEndpoint();
 
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <RuleCMSProvider token={token} endpoint={endpoint}>
+        <RuleCMSProvider token={token}>
           <div className="flex min-h-screen">
             <Sidebar />
             <main className="min-w-0 flex-1 px-4 pt-16 pb-12 sm:px-6 lg:px-8 lg:pt-8">
