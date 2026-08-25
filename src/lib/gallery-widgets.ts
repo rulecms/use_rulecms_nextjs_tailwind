@@ -24,6 +24,13 @@ export const galleryWidgets: GalleryWidget[] = [
       'Compare host JSX (left) with the RuleCMS widget (right). Both use the same Tailwind classes compiled by this host.',
     publishedKeyEnv: 'RULECMS_WIDGET_1_PUBLISHED_KEY',
   },
+  {
+    slug: 'widget-2',
+    label: 'Widget 2',
+    description:
+      'Compare host JSX (left) with the RuleCMS widget (right). Both use stock Tailwind classes only — no project theme colors.',
+    publishedKeyEnv: 'RULECMS_WIDGET_2_PUBLISHED_KEY',
+  },
 ];
 
 export function getWidgetBySlug(slug: string): GalleryWidget | undefined {

@@ -6,8 +6,8 @@ const HEX = /^#(?:[0-9a-f]{3,8})$/i;
 const LENGTH = /^-?[\d.]+(?:rem|px|em)$/;
 const TRANSPARENT_SHADOW = /^0 0 #0000$/;
 
-function isHexColor(value: string) {
-  return HEX.test(value);
+function isPaintColor(value: string) {
+  return HEX.test(value) || value.startsWith('oklch(') || value.startsWith('rgb');
 }
 
 function CssAccordion({
@@ -48,7 +48,7 @@ function VariableRow({ variable }: { variable: WidgetCssVariable }) {
 }
 
 function VariableSwatch({ variable }: { variable: WidgetCssVariable }) {
-  if (isHexColor(variable.value)) {
+  if (isPaintColor(variable.value)) {
     return (
       <span
         className="h-10 w-10 shrink-0 rounded-lg ring-1 ring-parity-line"

@@ -40,6 +40,7 @@ This repository does **not** commit tokens or published keys.
 | --- | --- |
 | `RULECMS_TOKEN` | The one RuleCMS app token. Client-side and server pre-fetched. |
 | `RULECMS_WIDGET_1_PUBLISHED_KEY` | Widget 1 published key |
+| `RULECMS_WIDGET_2_PUBLISHED_KEY` | Widget 2 published key |
 
 ## Routes
 
@@ -48,6 +49,8 @@ This repository does **not** commit tokens or published keys.
 | `/` | Purpose of this gallery |
 | `/widgets/widget-1` | Left: source JSX. Right: server pre-fetched widget |
 | `/widgets/widget-1/csr` | Same split; right pane is client-side |
+| `/widgets/widget-2` | Same split; stock Tailwind only (no project theme colors) |
+| `/widgets/widget-2/csr` | Widget 2, client-side |
 
 ## Scripts
 

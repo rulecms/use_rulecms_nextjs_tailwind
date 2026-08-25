@@ -14,6 +14,8 @@ const OUT_DIR = path.join(ROOT, 'src/lib/generated-tailwind');
 const WIDGET_CLASSES = {
   'widget-1':
     'rounded-xl bg-parity-accent-soft px-4 py-3 text-parity-ink shadow-sm ring-1 ring-parity-accent/30',
+  'widget-2':
+    'rounded-xl bg-yellow-300 px-4 py-3 text-zinc-950 shadow-sm ring-2 ring-fuchsia-600',
 };
 
 function escapeClassSelector(className) {
@@ -34,19 +36,6 @@ function collectVarNames(cssText) {
   }
   return names;
 }
-
-/** Host :root values a non-Tailwind page must provide for widget-1. */
-const MINIMUM_HOST_VARS = [
-  '--color-parity-accent',
-  '--color-parity-accent-soft',
-  '--color-parity-ink',
-  '--radius-xl',
-  '--spacing',
-  '--tw-inset-shadow',
-  '--tw-inset-ring-shadow',
-  '--tw-ring-offset-shadow',
-  '--tw-ring-offset-width',
-];
 
 const HOST_ROOT_VALUES = {
   '--tw-inset-shadow': '0 0 #0000',
@@ -150,18 +139,18 @@ for (const [slug, classString] of Object.entries(WIDGET_CLASSES)) {
     });
   });
 
-  const minimumVariables = MINIMUM_HOST_VARS.map((name) => {
-    const found = variables.find((item) => item.name === name);
-    const value = HOST_ROOT_VALUES[name] ?? found?.value;
-    if (!value) {
-      throw new Error(`Missing compiled value for ${name}`);
-    }
-    return {
-      name,
-      value,
-      source: HOST_ROOT_VALUES[name] ? 'property' : 'theme',
-    };
-  });
+  const minimumVariables = [
+    ...variables
+      .filter((item) => item.source === 'theme')
+      .sort((a, b) => a.name.localeCompare(b.name)),
+    ...Object.entries(HOST_ROOT_VALUES)
+      .filter(([name]) => usedVars.has(name))
+      .map(([name, value]) => ({
+        name,
+        value,
+        source: 'property',
+      })),
+  ];
 
   const file = path.join(OUT_DIR, `${slug}.ts`);
   const contents = `/**
